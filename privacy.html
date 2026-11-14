@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Chalamate Privacy Policy</title>
+</head>
+<body>
+  <main>
+    <h1>Chalamate Privacy Policy</h1>
+    <p><strong>Effective date:</strong> November 14, 2026</p>
+
+    <h2>Information Chalamate processes</h2>
+    <p>Chalamate receives Telegram messages and voice notes sent to its private assistant account. The assistant processes message text and, for voice notes, audio or a transcription to provide a reply. A message is added to the Google Sheets Inbox only when the user explicitly requests a capture. For a capture, Chalamate writes the original message text or transcription, a timestamp, an AI-selected category and tags, optional notes, a status, and a Telegram message identifier used to prevent duplicate entries.</p>
+
+    <h2>Google data and permissions</h2>
+    <p>Chalamate requests Google's <code>drive.file</code> permission. This permission is used for the designated Inbox spreadsheet available to the app; Chalamate does not request general access to the user's Drive, Gmail, or Calendar. To prevent duplicate captures, Chalamate reads the spreadsheet's Telegram message ID column and writes new capture rows through the Google Sheets API using RAW value input. A captured row contains the original text or transcription, Warsaw-local timestamp, category, tags, optional notes, status, and Telegram message ID.</p>
+    <p>Inbox entries are stored in the user's Google Drive. Google processes these API requests under its own terms and privacy practices. Chalamate does not sell Google user data or use it for advertising. Spreadsheet contents are not sent to AI providers for model training. The assistant reads only the technical message ID column for duplicate checking; other spreadsheet values are not provided as model context.</p>
+
+    <h2>AI and service providers</h2>
+    <p>To generate replies and classify explicitly captured notes, Telegram message text is sent through OpenRouter to the configured language model. For voice notes, audio is sent through OpenRouter to the configured Whisper audio transcription model; the resulting transcription is then handled as message text. OpenRouter routes requests to model providers, whose data handling policies may differ. OpenRouter says prompts and completions are not logged by default unless the account opts into logging; its safety-retention handling and provider-side retention policies may also apply. Chalamate's deployment does not specify OpenRouter account privacy settings, and those account settings were not independently verified for this policy. Do not send information through the assistant unless it is acceptable to process it through these services. Telegram also processes messages under its own terms and privacy practices.</p>
+
+    <h2>Storage, retention, and deletion</h2>
+    <p>Inbox rows remain in the user's Google spreadsheet until the user deletes them. Telegram conversation sessions and operational assistant state are stored on a private service host in persistent storage. Inbound voice files may also remain in persistent media storage after transcription. No fixed time-based deletion period for direct-message sessions or inbound voice files is configured in the deployment. OpenClaw may maintain session storage under its store-maintenance and capacity rules; this is not a guaranteed deletion schedule. Server backups may contain service state, and their retention period was not verified for this policy.</p>
+    <p>To remove an Inbox entry, delete its row in the spreadsheet. To request deletion of service-side session or media data, contact the operator at the address below; the operator must locate and remove the relevant service data. Deletion from the live service does not guarantee immediate removal from backups whose retention is managed separately. The user may revoke Chalamate's Google access from Google Account security settings; revocation prevents future API access but does not itself delete spreadsheet rows or service data.</p>
+
+    <h2>Security and sharing</h2>
+    <p>Google authorization credentials are stored in a dedicated credential area for the Chalamate assistant, separate from other assistant deployments. Telegram access is restricted to the approved private account. The service operator administers the host and its backups.</p>
+
+    <h2>Contact and changes</h2>
+    <p>Privacy questions or deletion requests: <a href="mailto:konstantin.reido@gmail.com">konstantin.reido@gmail.com</a>.</p>
+    <p>This policy will be updated if Chalamate's data handling changes.</p>
+  </main>
+</body>
+</html>
